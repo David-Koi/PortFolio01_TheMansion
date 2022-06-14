@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Basement</title>
+
+    <link rel="stylesheet" href="./styles/basement.css" />
+    <script type="text/javascript" src="./index.js" charset="UTF-8"></script>
+</head>
+<body>
+    <script>
+        if(haveLantern){
+            
+            document.write(`
+                    <div id="torchDiv" 
+                    onmousemove="mouseCoordinates(event)"
+                    onmouseout="mouseOut()">
+
+            
+                <div id="torchSon"></div>
+
+                <div class="keyFather">
+                    <div class="key"></div>
+                    <div class="key"></div>
+                    <div class="key"></div>
+                    <div class="key"></div>
+                </div>
+
+                <div class="keyFather">
+                    <div class="key"></div>
+                    <div class="key"></div>
+                    <div class="key"></div>
+                    <div class="key"></div>
+                </div>
+
+                <div class="keyFather">
+                    <div class="key"></div>
+                    <div class="key"></div>
+                    <div class="key"></div>
+                    <div class="key"></div>
+                </div>
+
+                <div class="keyFather">
+                    <div class="key"></div>
+                    <div class="key" id="hereIs"></div>
+                    <div class="key"></div>
+                    <div class="key"></div>
+                </div>
+
+                <div class="keyFather">
+                    <div class="key"></div>
+                    <div class="key"></div>
+                    <div class="key"></div>
+                    <div class="key"></div>
+                </div>
+            </div>`)
+        }else{
+            document.write(`
+                <p>No tienes las herramientas
+                    necesarias</p>
+            `)
+        }
+    
+    
+</script>
+
+<div class="buttons">
+    <button><a href="">Laboratorio</a></button>
+    <button><a href="./bethroom.html">Bethroom</a></button>
+    <button><a href="./livingroom.html">Livingroom</a></button> 
+    <button><a href="./mainCorridor.html">Main Corridor</a></button> 
+</div>
+</body>
+</html>

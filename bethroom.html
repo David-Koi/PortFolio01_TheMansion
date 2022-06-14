@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bethroom</title>
+
+    <link rel="stylesheet" href="./styles/bethroom.css" />
+    <script type="text/javascript" src="./index.js" charset="UTF-8"></script>
+    <script type="module" src="./components/PuzzleGrid.js"></script>
+</head>
+<body>
+
+    <!-- Estilo de piezas seleccionables -->
+    <style>
+        .piece{
+            border: 1px white solid;
+        }
+        .buttons{
+        margin-top: 1%;
+        display: flex;
+        justify-content:flex-start ;
+        align-items: center;
+       
+        }
+        button{
+            width: 8%;
+            border: 1px solid white;
+            background-color: transparent;
+            margin-bottom: 1%;
+            margin-right: 1%;
+            color: white;
+        }
+        a{
+            color: white;
+            text-decoration: none;
+        }
+    </style>
+    <!-- Estilo de piezas seleccionables -->
+
+    <script>
+        
+        ////Restaura el array al estado original////
+        
+        ////Restaura el array al estado original////
+
+        //////variable que indica pieza seleccionada y posición del array
+        let lastSelectec = {
+            n1:null,
+            n2:null,
+            id:'',
+        };
+        //////variable que indica pieza seleccionada y posición del array
+
+
+        ///////Elimina selección de pieza//////
+        const deleteSelect = ( ) =>{
+            console.log(lastSelectec);
+            
+            let myDiv = document.getElementById(`${lastSelectec.id}`);
+
+            myDiv.classList.replace(`selectecPiece`, "piece");
+        }
+        ///////Elimina selección de pieza//////
+        
+        //////seleccionar pieza//////
+        const selectPiece = (n1,n2) =>{
+            console.log(`p${n1}${n2}`);
+            console.log(pieces[n1][n2])
+            
+            if(lastSelectec.id === `p${n1}${n2}`){
+
+                deleteSelect();
+                lastSelectec.id = '';
+                
+            }else if(pieces[n1][n2] === ''){
+                
+                if(lastSelectec.id != ''){
+                    deleteSelect();
+                    lastSelectec.id = '';
+                } 
+                
+            }else{
+                
+                if(lastSelectec.id != ''){
+                    deleteSelect();
+                    
+                    lastSelectec.id = `p${n1}${n2}`;
+                    lastSelectec.n1 = n1;
+                    lastSelectec.n2 = n2;
+                    
+                    let myDiv = document.getElementById(`${lastSelectec.id}`);
+                    
+                    myDiv.classList.replace(`piece`, "selectecPiece");
+
+                }else{
+                    lastSelectec.id = `p${n1}${n2}`;
+                    lastSelectec.n1 = n1;
+                    lastSelectec.n2 = n2;
+                    
+                    let myDiv = document.getElementById(`${lastSelectec.id}`);
+
+                    myDiv.classList.replace(`piece`, "selectecPiece");
+                }
+            }
+            console.log(lastSelectec);
+        }
+        //////seleccionar pieza//////
+
+        
+        /////////////////////movimiento con teclas
+        const movePiece = () =>{
+            console.log(event.keyCode);
+            console.log(lastSelectec);
+            
+            if(lastSelectec.id != ''){
+                
+                switch(event.keyCode){
+                    
+                    case 37:
+                        
+                        if(lastSelectec.n2 != 1 
+                        && 
+                        pieces[lastSelectec.n1][lastSelectec.n2 - 1] === ''){
+                            
+                            pieces[lastSelectec.n1][lastSelectec.n2 - 1] =
+                                pieces[lastSelectec.n1][lastSelectec.n2];
+                                
+                                pieces[lastSelectec.n1][lastSelectec.n2] = '';
+                                deleteSelect();
+                            }
+                    break;
+                            
+                    case 39:
+                        
+                        if(lastSelectec.n2 != 3 
+                        && 
+                        pieces[lastSelectec.n1][lastSelectec.n2 + 1] === ''){
+                            
+                            pieces[lastSelectec.n1][lastSelectec.n2 + 1] =
+                            pieces[lastSelectec.n1][lastSelectec.n2];
+                            
+                            pieces[lastSelectec.n1][lastSelectec.n2] = '';
+                            deleteSelect();
+                        }
+                    break;
+                        
+                    case 40:
+                            
+                            if(lastSelectec.n1 != 2 
+                            && 
+                            pieces[lastSelectec.n1 + 1][lastSelectec.n2] === ''){
+
+                                pieces[lastSelectec.n1 + 1][lastSelectec.n2] =
+                                pieces[lastSelectec.n1][lastSelectec.n2];
+                                
+                                pieces[lastSelectec.n1][lastSelectec.n2] = '';
+                                deleteSelect();
+                            }
+                        break;
+                            
+                        case 38:
+                                
+                            if(lastSelectec.n1 != 0 
+                            && 
+                            pieces[lastSelectec.n1 - 1][lastSelectec.n2] === ''){
+                                    
+                                pieces[lastSelectec.n1 - 1][lastSelectec.n2] =
+                                pieces[lastSelectec.n1][lastSelectec.n2];
+                                    
+                                pieces[lastSelectec.n1][lastSelectec.n2] = '';
+                                deleteSelect();
+                            }
+                        break;
+                }
+                            
+            }
+            console.log(pieces);
+            checkIfFinish();
+        }
+        /////////////////////movimiento con teclas
+
+        /////////captura evento de pulsación
+        document.addEventListener('keydown', movePiece);
+        /////////captura evento de pulsación
+
+        const restartPuzzle = () =>{
+
+            pieces = [
+                ['F','E','U','T'],
+                ['S','L','','L','K'],
+                ['W','A','C','B'],
+                ['D','E','V','E','L','0','P','E','R']
+            ];
+            printPuzzle();
+        };
+
+        const finishPuzzle = () =>{
+
+            console.log('hecho');
+
+        }
+        const checkIfFinish = () =>{
+
+            if( pieces.toString() ===
+                `F,U,L,L,S,T,A,C,K,W,E,B,,D,E,V,E,L,0,P,E,R`){
+
+                    finishPuzzle();
+            }else{
+                console.log('aún no');
+            }
+        };
+
+        const solvePuzzle = () =>{
+
+            pieces = [
+                ['F','U','L','L'],
+                ['S','T','A','C','K'],
+                ['W','E','B',''],
+                ['D','E','V','E','L','0','P','E','R']
+            ];
+            printPuzzle();
+            checkIfFinish();
+            console.log(pieces.toString());
+        };
+
+    </script>
+
+    <div id="puzzle"></div>
+
+    <script>
+
+        const printPuzzle = () =>{
+
+            document.getElementById("puzzle").innerHTML = `
+                <puzzle-grid></puzzle-grid>
+            `;
+
+        }
+
+        printPuzzle();
+    </script>
+
+    <div class="buttons">
+        <button onclick="restartPuzzle()">Restart</button>
+        <button onclick="solvePuzzle()">Solve</button> 
+    </div>
+
+    <div class="buttons">
+        <button><a href="">Laboratorio</a></button>
+        <button><a href="./livingroom.html">Livingroom</a></button>
+        <button><a href="./basement.html">Basement</a></button>  
+        <button><a href="./mainCorridor.html">Main Corridor</a></button> 
+    </div>
+
+</body>
+</html>

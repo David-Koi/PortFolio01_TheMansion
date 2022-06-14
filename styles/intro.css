@@ -1,0 +1,547 @@
+@font-face {
+  font-family: "Gingerbread";
+  src: url("../fonts/Gingerbread House.ttf");
+}
+
+:root {
+  --bgColor: white;
+  --letterC: black;
+  --xPosition: 0px;
+  --yPosition: 0px;
+  --torchBC: black;
+}
+
+/* mansion */
+body {
+  background: black;
+  text-align: center;
+  color: transparent;
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+}
+
+.mansionHeader {
+  width: 100%;
+  height: 80vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.mansionHeader .imgContainer {
+  z-index: -1;
+  border-radius: 50%;
+  display: inline-block;
+  position: relative;
+}
+
+.mansionHeader .imgContainer img {
+  z-index: -1;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  border: 1px solid rgba(255, 255, 255, 0);
+}
+
+.mansionHeader .imgContainer:after {
+  content: "";
+  display: inline-block;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse at center, rgba(247, 236, 236, 0.349) 0%, #070707 69%, #0e0d0d 100%);
+  border-radius: 50%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.mansionHeader .titleBox {
+  position: relative;
+  right: 25%;
+  z-index: 2;
+  width: 100%;
+  height: 90%;
+}
+
+@-webkit-keyframes titleAniamtion {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+    display: none;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+  }
+}
+
+@keyframes titleAniamtion {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+    display: none;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+  }
+}
+
+.mansionHeader .titleBox .title {
+  width: 150%;
+  font-size: 12em;
+  color: #992222;
+  text-align: center;
+  font-family: 'Gingerbread';
+  -webkit-animation-name: titleAniamtion;
+          animation-name: titleAniamtion;
+  -webkit-animation-duration: 8s;
+          animation-duration: 8s;
+}
+
+.mansionHeader .titleBox .subTtitle {
+  opacity: 0%;
+  position: relative;
+  bottom: 80%;
+  width: 100%;
+  color: orange;
+  font-size: 7em;
+  text-align: center;
+  font-family: 'Gingerbread';
+  -webkit-animation-name: subTtitleAniamtion;
+          animation-name: subTtitleAniamtion;
+  -webkit-animation-duration: 7s;
+          animation-duration: 7s;
+  -webkit-animation-delay: 10s;
+          animation-delay: 10s;
+}
+
+.mansionHeader .titleBox .subTtitle2 {
+  opacity: 0%;
+  position: relative;
+  bottom: 150%;
+  width: 150%;
+  color: #992222;
+  font-size: 12em;
+  text-align: center;
+  font-family: 'Gingerbread';
+  -webkit-animation-name: subTtitleAniamtion2;
+          animation-name: subTtitleAniamtion2;
+  -webkit-animation-duration: 9s;
+          animation-duration: 9s;
+  -webkit-animation-delay: 16s;
+          animation-delay: 16s;
+}
+
+@-webkit-keyframes subTtitleAniamtion {
+  0% {
+    opacity: 0%;
+  }
+  50% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+    display: none;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+  }
+}
+
+@keyframes subTtitleAniamtion {
+  0% {
+    opacity: 0%;
+  }
+  50% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+    display: none;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+  }
+}
+
+@-webkit-keyframes subTtitleAniamtion2 {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+    display: none;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+  }
+}
+
+@keyframes subTtitleAniamtion2 {
+  0% {
+    opacity: 100%;
+  }
+  100% {
+    opacity: 0%;
+    display: none;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+  }
+}
+
+.mansionHeader .titleBox .span1 {
+  display: inline-block;
+  text-shadow: 0 0 0 whitesmoke;
+  -webkit-animation-name: smoky;
+          animation-name: smoky;
+  -webkit-animation: smoky 5s 3s both;
+          animation: smoky 5s 3s both;
+}
+
+.mansionHeader .titleBox .span2 {
+  display: inline-block;
+  text-shadow: 0 0 0 whitesmoke;
+  -webkit-animation-name: smoky;
+          animation-name: smoky;
+  -webkit-animation: smoky 5s 3s both;
+          animation: smoky 5s 3s both;
+}
+
+.mansionHeader .titleBox .span1:nth-child(even) {
+  -webkit-animation-name: smoky-mirror;
+          animation-name: smoky-mirror;
+}
+
+.mansionHeader .titleBox .span2:nth-child(even) {
+  -webkit-animation-name: smoky-mirror;
+          animation-name: smoky-mirror;
+}
+
+@-webkit-keyframes smoky {
+  60% {
+    text-shadow: 0 0 40px whitesmoke;
+  }
+  to {
+    -webkit-transform: translate3d(15rem, -8rem, 0) rotate(-40deg) skewX(70deg) scale(1.5);
+            transform: translate3d(15rem, -8rem, 0) rotate(-40deg) skewX(70deg) scale(1.5);
+    text-shadow: 0 0 20px whitesmoke;
+    opacity: 0;
+    display: none;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+  }
+}
+
+@keyframes smoky {
+  60% {
+    text-shadow: 0 0 40px whitesmoke;
+  }
+  to {
+    -webkit-transform: translate3d(15rem, -8rem, 0) rotate(-40deg) skewX(70deg) scale(1.5);
+            transform: translate3d(15rem, -8rem, 0) rotate(-40deg) skewX(70deg) scale(1.5);
+    text-shadow: 0 0 20px whitesmoke;
+    opacity: 0;
+    display: none;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+  }
+}
+
+@-webkit-keyframes smoky-mirror {
+  60% {
+    -webkit-animation-delay: 20s;
+            animation-delay: 20s;
+    text-shadow: 0 0 40px whitesmoke;
+  }
+  to {
+    -webkit-transform: translate3d(18rem, -8rem, 0) rotate(-40deg) skewX(-70deg) scale(2);
+            transform: translate3d(18rem, -8rem, 0) rotate(-40deg) skewX(-70deg) scale(2);
+    text-shadow: 0 0 20px whitesmoke;
+    opacity: 0;
+    display: none;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+  }
+}
+
+@keyframes smoky-mirror {
+  60% {
+    -webkit-animation-delay: 20s;
+            animation-delay: 20s;
+    text-shadow: 0 0 40px whitesmoke;
+  }
+  to {
+    -webkit-transform: translate3d(18rem, -8rem, 0) rotate(-40deg) skewX(-70deg) scale(2);
+            transform: translate3d(18rem, -8rem, 0) rotate(-40deg) skewX(-70deg) scale(2);
+    text-shadow: 0 0 20px whitesmoke;
+    opacity: 0;
+    display: none;
+    -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
+  }
+}
+
+.mansionHeader .titleBox .span1:nth-of-type(1) {
+  -webkit-animation-delay: 5.2s;
+          animation-delay: 5.2s;
+}
+
+.mansionHeader .titleBox .span1:nth-of-type(2) {
+  -webkit-animation-delay: 5.4s;
+          animation-delay: 5.4s;
+}
+
+.mansionHeader .titleBox .span1:nth-of-type(3) {
+  -webkit-animation-delay: 5.6s;
+          animation-delay: 5.6s;
+}
+
+.mansionHeader .titleBox .span1:nth-of-type(4) {
+  -webkit-animation-delay: 5.8s;
+          animation-delay: 5.8s;
+}
+
+.mansionHeader .titleBox .span1:nth-of-type(5) {
+  -webkit-animation-delay: 6s;
+          animation-delay: 6s;
+}
+
+.mansionHeader .titleBox .span1:nth-of-type(6) {
+  -webkit-animation-delay: 6.2s;
+          animation-delay: 6.2s;
+}
+
+.mansionHeader .titleBox .span1:nth-of-type(7) {
+  -webkit-animation-delay: 6.4s;
+          animation-delay: 6.4s;
+}
+
+.mansionHeader .titleBox .span1:nth-of-type(8) {
+  -webkit-animation-delay: 6.6s;
+          animation-delay: 6.6s;
+}
+
+.mansionHeader .titleBox .span1:nth-of-type(9) {
+  -webkit-animation-delay: 6.8s;
+          animation-delay: 6.8s;
+}
+
+.mansionHeader .titleBox .span1:nth-of-type(10) {
+  -webkit-animation-delay: 7s;
+          animation-delay: 7s;
+}
+
+.mansionHeader .titleBox .span1:nth-of-type(11) {
+  -webkit-animation-delay: 7.2s;
+          animation-delay: 7.2s;
+}
+
+.mansionHeader .titleBox .span1:nth-of-type(12) {
+  -webkit-animation-delay: 7.4s;
+          animation-delay: 7.4s;
+}
+
+.mansionHeader .titleBox .span1:nth-of-type(13) {
+  -webkit-animation-delay: 7.6s;
+          animation-delay: 7.6s;
+}
+
+.mansionHeader .titleBox .span1:nth-of-type(14) {
+  -webkit-animation-delay: 7.8s;
+          animation-delay: 7.8s;
+}
+
+.mansionHeader .titleBox .span1:nth-of-type(15) {
+  -webkit-animation-delay: 8s;
+          animation-delay: 8s;
+}
+
+.mansionHeader .titleBox .span1:nth-of-type(16) {
+  -webkit-animation-delay: 8.2s;
+          animation-delay: 8.2s;
+}
+
+.mansionHeader .titleBox .span1:nth-of-type(17) {
+  -webkit-animation-delay: 8.4s;
+          animation-delay: 8.4s;
+}
+
+.mansionHeader .titleBox .span1:nth-of-type(18) {
+  -webkit-animation-delay: 8.6s;
+          animation-delay: 8.6s;
+}
+
+.mansionHeader .titleBox .span1:nth-of-type(19) {
+  -webkit-animation-delay: 8.8s;
+          animation-delay: 8.8s;
+}
+
+.mansionHeader .titleBox .span1:nth-of-type(20) {
+  -webkit-animation-delay: 9s;
+          animation-delay: 9s;
+}
+
+.mansionHeader .titleBox .span1:nth-of-type(21) {
+  -webkit-animation-delay: 9.2s;
+          animation-delay: 9.2s;
+}
+
+.mansionHeader .titleBox .span2:nth-of-type(1) {
+  -webkit-animation-delay: 13.2s;
+          animation-delay: 13.2s;
+}
+
+.mansionHeader .titleBox .span2:nth-of-type(2) {
+  -webkit-animation-delay: 13.4s;
+          animation-delay: 13.4s;
+}
+
+.mansionHeader .titleBox .span2:nth-of-type(3) {
+  -webkit-animation-delay: 13.6s;
+          animation-delay: 13.6s;
+}
+
+.mansionHeader .titleBox .span2:nth-of-type(4) {
+  -webkit-animation-delay: 13.8s;
+          animation-delay: 13.8s;
+}
+
+.mansionHeader .titleBox .span2:nth-of-type(5) {
+  -webkit-animation-delay: 14s;
+          animation-delay: 14s;
+}
+
+.mansionHeader .titleBox .span2:nth-of-type(6) {
+  -webkit-animation-delay: 14.2s;
+          animation-delay: 14.2s;
+}
+
+.mansionHeader .titleBox .span2:nth-of-type(7) {
+  -webkit-animation-delay: 14.4s;
+          animation-delay: 14.4s;
+}
+
+.mansionHeader .titleBox .span2:nth-of-type(8) {
+  -webkit-animation-delay: 14.6s;
+          animation-delay: 14.6s;
+}
+
+.mansionHeader .titleBox .span2:nth-of-type(9) {
+  -webkit-animation-delay: 14.8s;
+          animation-delay: 14.8s;
+}
+
+.mansionHeader .titleBox .span2:nth-of-type(10) {
+  -webkit-animation-delay: 15s;
+          animation-delay: 15s;
+}
+
+.mansionHeader .titleBox .span2:nth-of-type(11) {
+  -webkit-animation-delay: 15.2s;
+          animation-delay: 15.2s;
+}
+
+.mansionHeader .titleBox .span2:nth-of-type(12) {
+  -webkit-animation-delay: 15.4s;
+          animation-delay: 15.4s;
+}
+
+.mansionHeader .titleBox .span2:nth-of-type(13) {
+  -webkit-animation-delay: 15.6s;
+          animation-delay: 15.6s;
+}
+
+.mansionHeader .titleBox .span2:nth-of-type(14) {
+  -webkit-animation-delay: 15.8s;
+          animation-delay: 15.8s;
+}
+
+.mansionHeader .titleBox .span2:nth-of-type(15) {
+  -webkit-animation-delay: 16s;
+          animation-delay: 16s;
+}
+
+.mansionHeader .titleBox .span2:nth-of-type(16) {
+  -webkit-animation-delay: 16.2s;
+          animation-delay: 16.2s;
+}
+
+.mansionHeader .titleBox .span2:nth-of-type(17) {
+  -webkit-animation-delay: 16.4s;
+          animation-delay: 16.4s;
+}
+
+.mansionHeader .titleBox .span2:nth-of-type(18) {
+  -webkit-animation-delay: 16.6s;
+          animation-delay: 16.6s;
+}
+
+.mansionHeader .titleBox .span2:nth-of-type(19) {
+  -webkit-animation-delay: 16.8s;
+          animation-delay: 16.8s;
+}
+
+.mansionHeader .titleBox .span2:nth-of-type(20) {
+  -webkit-animation-delay: 17s;
+          animation-delay: 17s;
+}
+
+.mansionHeader .titleBox .span2:nth-of-type(21) {
+  -webkit-animation-delay: 17.2s;
+          animation-delay: 17.2s;
+}
+
+.mansionHeader .titleBox .instructions {
+  text-decoration: none;
+  opacity: 0%;
+  position: relative;
+  color: #d1580d;
+  top: 500px;
+  left: 300px;
+  font-size: 1.5em;
+  -webkit-animation-name: instructions;
+          animation-name: instructions;
+  -webkit-animation-duration: 5;
+          animation-duration: 5;
+  -webkit-animation-delay: 22s;
+          animation-delay: 22s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+}
+
+.mansionHeader .titleBox #note {
+  font-size: 1em;
+}
+
+@-webkit-keyframes instructions {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+@keyframes instructions {
+  from {
+    opacity: 0%;
+  }
+  to {
+    opacity: 100%;
+  }
+}
+
+.chapter1 {
+  background-color: #eef1f1;
+  height: 100vh;
+  width: 100%;
+  color: white;
+}
+
+/* mansion */
+/*# sourceMappingURL=intro.css.map */

@@ -1,0 +1,35 @@
+body{
+    background-color: black;
+    color: white;
+    .grid{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+        justify-content: center;
+        .row{
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .fixed{
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            color: white;
+            width: 50px;
+            height: 50px;
+            // background-color: aqua;
+        }
+            
+        .selectecPiece{
+            background-color:chocolate;
+        }
+    }
+}
+
+
+

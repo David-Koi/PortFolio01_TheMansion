@@ -1,0 +1,218 @@
+body{
+    background-color: black;
+}
+// intro animation
+.hall{
+    position: absolute;
+    height: 90vh;
+    width: 100%;
+    display: flex;
+    z-index: 3;
+    animation-name: out;
+    animation-duration: 10s;
+    animation-fill-mode:forwards;
+    color: white;
+}
+
+.wall{
+    position: relative;
+    width: 25%;
+    height: 100%;
+    z-index: 3;
+    background-color: black;
+}
+
+.hoja{
+    // background-color: rgba(187, 78, 23, 0.993);
+    position: relative;
+    height: 100%;
+    width: 25%;
+    z-index: -1;
+}
+
+#h1{
+    // background-image: url('../sources/door.jpg');
+    background-color: rgb(115, 55, 55);
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation-name: open1;
+    animation-duration: 8s;
+    animation-fill-mode:forwards;
+}
+
+#h2{
+    // background-image: url('../sources/door.jpg');
+    background-color: rgb(115, 55, 55);
+    background-size: cover;
+    background-repeat: no-repeat;
+    animation-name: open2;
+    animation-duration: 8s;
+    animation-fill-mode:forwards;
+}
+
+#w1{
+    animation-name: out1;
+    animation-duration: 8s;
+    animation-fill-mode:forwards;
+}
+
+#w2{
+    animation-name: out2;
+    animation-duration: 8s;
+    animation-fill-mode:forwards;
+}
+
+@keyframes out {
+    
+    100%{ 
+        visibility: hidden;
+    }
+}
+
+@keyframes open1 {
+
+    0%{ 
+        left:0%;
+    }
+    100%{ 
+        left: -55%;
+        height: 200%;
+        opacity: 0%;
+        // display: none;
+    }
+}
+
+@keyframes open2 {
+
+    0%{ 
+        left:0%;
+    }
+    100%{ 
+        left: 55%;
+        height: 200%;
+        opacity: 0%;
+        // display: none;
+    }
+}
+
+@keyframes out1 {
+
+    0%{
+        opacity:100%;
+        left:0%;
+    }
+    100%{
+        height: 200%; 
+        opacity: 0%;
+        // display: none;
+        left: -55%;
+    }
+}
+
+@keyframes out2 {
+
+    0%{
+        opacity:100%;
+        left:0%;
+    }
+    100%{
+        height: 200%; 
+        opacity: 0%;
+        // display: none;
+        left: 55%;
+    }
+}
+// intro animation
+
+.chapter1TtextIntro{
+    opacity: 0%;
+    width:100%;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    animation-name: into;
+    animation-duration: 6s;
+    animation-fill-mode:forwards;
+}
+ 
+@keyframes into {
+    0%{
+        opacity:0%;
+    }
+    50%{
+        opacity:0%;
+    }
+    100%{
+        padding-top: 5%;
+        opacity:100%;
+    } 
+}
+
+.letter{
+    color: burlywood;
+    font-size: 2em;
+    width: 100%;
+    height: 20vh;
+    text-align: center;
+    animation: intoLetter 10s forwards;
+
+    #ls{
+        font-size: 0.5em;
+    }
+}
+
+@keyframes intoLetter {
+    0%{
+        opacity:0%;
+    }
+    50%{
+        opacity:0%;
+    }
+    100%{
+        padding-top: 1%;
+        opacity:100%;
+    } 
+}
+
+.chapter1TtextIntro2{
+    opacity: 0%;
+    width:100%;
+    color: white;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    animation-name: into2;
+    animation-duration: 14s;
+    animation-fill-mode:forwards;
+}
+ 
+@keyframes into2 {
+    0%{
+        opacity:0%;
+        padding-top: 100%;
+    }
+    50%{
+        opacity:0%;
+    }
+    100%{
+        padding-top: 5%;
+        opacity:100%;
+    } 
+}
+
+.buttonNext{
+    background-color: transparent;
+    border: 1px white solid;
+    .instructions{
+        color: white;
+        text-decoration: none;
+    }
+}
+
+
+
+
+

@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Hall</title>
+
+    <link rel="stylesheet" href="./styles/chapter1.css" />
+    <script type="text/javascript" src="./index.js" charset="UTF-8"></script>
+</head>
+<body>
+
+    <header>
+
+        <audio autoplay="autoplay">   
+            <source src="./sources/doorSound.wav" type="audio/wav"/>   
+        </audio>
+
+        <div class="hall">
+            <div class="wall" id="w1"></div>
+            <div class="hoja" id="h1"></div>
+            <div class="hoja" id="h2"></div>
+            <div class="wall" id="w2"></div>
+        </div>
+        
+    </header>
+    <main>
+        <div class="chapter1TtextIntro">
+            <p>Te encuentras en el hall de la mansión. Apenas
+            das unos pasos hacia el interior, escuchas cómo
+            la puerta se cierra tras de tí. 
+            </p>
+            <p>Una risa enloquecida suena en algún lugar de la
+            mansión.</p>
+            <p>La puerta de salida tiene tres cerraduras 
+                y hay una nota pegada a ella...</p>
+        </div>
+        <div class="letter">
+            <p>
+                console.log(
+                'Encuentra las tres llaves...y 
+                tal vez te deje salir'
+                );</p>
+            <p  id="ls">Firmado</p>
+            <p>El Web Developer</p>
+        </div> 
+        <div class="chapter1TtextIntro2">
+            <p>No entiendes eso de console.log, pero una cosa está clara</p>  
+            <p>hay que salir de aquí.</p>
+            <button class="buttonNext">
+                <a class="instructions" href="./mainCorridor.html">continuar</a>
+            </button>
+        </div>
+
+        
+    </main>
+</body>
+</html>
