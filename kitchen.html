@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>kitchen</title>
+
+    <!-- css and utils Links-->
+    <link rel="stylesheet" href="./styles/kitchen.css" />
+    <script type="text/javascript" src="./index.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="./classes/TestTube.js" charset="UTF-8"></script>
+    <!-- css and utils Links-->
+  </head>
+  <script>
+        //capturamos las constantes de :root;
+        const cssPuzzle = document.documentElement.style;
+
+        //declaramos variables;
+        let b5 = new TestTube(5);
+        let b3 = new TestTube(3);
+
+        console.log(b5);
+        console.log(b3);
+
+        
+
+        //métodos del puzzle
+    const startPuzzle = () =>{
+
+        b5 = new TestTube(5);
+        b3 = new TestTube(3);
+        cssPuzzle.setProperty('--tt5c', `0%`);
+        cssPuzzle.setProperty('--tt3c', `0%`);
+
+        console.log(b5);
+        console.log(b3);
+
+        document.getElementById('contents5').innerHTML = b5.contents + 'L';
+        document.getElementById('contents3').innerHTML = b3.contents + 'L';
+    }
+
+    const fillTube = (tube) =>{
+
+        switch(tube){
+            case 5: 
+                b5.fillTube();
+                cssPuzzle.setProperty('--tt5c', `100%`);
+                console.log(b5)
+            break;
+            case 3: 
+                b3.fillTube();
+                cssPuzzle.setProperty('--tt3c', `100%`);
+                console.log(b3)
+            break;
+        }
+
+        document.getElementById('contents5').innerHTML = b5.contents + 'L';
+        document.getElementById('contents3').innerHTML = b3.contents + 'L';
+    }
+
+    const emptyTube = (tube) =>{
+
+            switch(tube){
+            case 5: 
+                b5.emptyTube();
+                cssPuzzle.setProperty('--tt5c', `0%`);
+                console.log(b5)
+            break;
+            case 3: 
+                b3.emptyTube();
+                cssPuzzle.setProperty('--tt3c', `0%`);
+                console.log(b3)
+            break;
+            }
+
+            document.getElementById('contents5').innerHTML = b5.contents + 'L';
+            document.getElementById('contents3').innerHTML = b3.contents + 'L';
+    }
+
+    const contentPaint = (tube1, tube2) =>{
+        console.log(tube1);
+        console.log(tube2);
+
+        switch(tube1){
+
+            case 0:cssPuzzle.setProperty('--tt5c', `0%`);
+            break;
+            case 1:cssPuzzle.setProperty('--tt5c', `20%`);
+            break;
+            case 2:cssPuzzle.setProperty('--tt5c', `40%`);
+            break;
+            case 3:cssPuzzle.setProperty('--tt5c', `60%`);
+            break;
+            case 4:cssPuzzle.setProperty('--tt5c', `80%`);
+            break;
+            case 5:cssPuzzle.setProperty('--tt5c', `100%`);
+            break;
+        }
+
+        switch(tube2){
+
+            case 0:cssPuzzle.setProperty('--tt3c', `0%`);
+            break;
+            case 1:cssPuzzle.setProperty('--tt3c', `33%`);
+            break;
+            case 2:cssPuzzle.setProperty('--tt3c', `66%`);
+            break;
+            case 3:cssPuzzle.setProperty('--tt3c', `100%`);
+            break;
+        }
+
+        document.getElementById('contents5').innerHTML = b5.contents + 'L';
+        document.getElementById('contents3').innerHTML = b3.contents + 'L';
+    }
+
+    const transferContent = (tube) =>{
+
+        switch(tube){
+            case 5: 
+                b5.transferContent(b3);
+                cssPuzzle.setProperty('--tt5c', `0%`);
+                console.log(b5)
+            break;
+            case 3: 
+                b3.transferContent(b5);
+                cssPuzzle.setProperty('--tt3c', `0%`);
+                console.log(b3)
+            break;
+        }
+        
+        contentPaint(b5.contents, b3.contents)
+    }
+    
+    </script>
+<body>
+<header>
+    <h1>KITCHEN</h1>
+</header>
+    <div class="grandFather">
+
+        <div class="father">
+            5L
+            <div class="testTube5">
+                <div class="intoTT5"></div>
+            </div>
+            <p id="contents5"></p>
+            <div class="buttons">
+                <button onclick="fillTube(5)">Llenar</button>
+                <button onclick="emptyTube(5)">Vaciar</button>
+                <button onclick="transferContent(5)">Traspasar</button>  
+            </div>
+        </div>
+
+        <div class="father">3L
+            <div class="testTube3">
+                <div class="intoTT3"></div>
+            </div>
+            <p id="contents3"></p>
+            <div class="buttons">
+                <button onclick="fillTube(3)">Llenar</button>
+                <button onclick="emptyTube(3)">Vaciar</button>
+                <button onclick="transferContent(3)">Traspasar</button>  
+            </div>
+        </div>
+
+    </div>
+    
+    <button onclick="startPuzzle()">RESTART</button>
+
+    <div class="buttons">
+        <button><a href="">Laboratorio</a></button>
+        <button><a href="./livingroom.html">Livingroom</a></button>
+        <button><a href="./basement.html">Basement</a></button>  
+        <button><a href="./mainCorridor.html">Main Corridor</a></button> 
+    </div>
+    
+</body>
+</html>

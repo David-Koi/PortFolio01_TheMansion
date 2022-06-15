@@ -10,10 +10,134 @@
     <script type="text/javascript" src="./index.js" charset="UTF-8"></script>
 </head>
 <body>
+
+    <script>
+
+        ///////////////////////////////////////////Proof CODE
+         
+        const sideSize = 3; // Grid de lado 6
+        
+        let gridPosBase = [[3, 1],[2, 3]];
+        
+        let encriptedMessage = "053856IID";
+        
+        ///////////////////////////////////START OF MY CODE
+        
+        ///////////////////////////////////ArrowFunction create the grid of numbers.
+              const grid = (size, string) => {
+                let grid = [];
+        
+                for (let i = 0; i < size; i++) {
+                  let aux = [];
+        
+                  for (let j = 1; j <= size; j++) {
+                    aux.push([j, i + 1]);
+                  }
+                  grid.push(aux);
+                }
+                console.log(grid);
+                return grid;
+              };
+        //////////////////////////////////ArrowFunction create a grid with the text.
+        
+              const textGrid = (size, string) => {
+                let textGrid = [];
+        
+                for (let i = 0; i < size; i++){
+                  let aux = [];
+        
+                  for (let j = 1; j <= size; j++) {
+                    aux.push(string[0]);
+                    string = string.slice(1);
+                  }
+                  textGrid.push(aux);
+                }
+                console.log(textGrid);
+                return textGrid;
+              };
+        ////////////////////////////////
+        
+        /////////////////////////////////ArrowFunction to turn the grid 90 degrees.
+        
+              const ninetyDegrees = (serie) => {
+                let turnSerie90 = [];
+        
+                for (let i = 0; i < serie.length; i++) {
+                  let aux = [];
+        
+                  for (let j = 2; j >= 0; j--) {
+                    let aux2 = serie[j];
+                    aux.push(aux2[i]);
+                  }
+                  turnSerie90.push(aux);
+                }
+                console.log(turnSerie90);
+                return (serie = turnSerie90);
+              };
+        //////////////////////////////
+        
+        //////////////////////////ArrowFunction to apply the grid over the coordenates.
+        
+        const compare = (numbersGrid, textGrid, coordenates)=>{
+            let text = "";
+        
+            for (let i = 0; i < numbersGrid.length; i++) {
+                
+                for (let j = 0; j < numbersGrid[i].length; j++) {
+                    let position = numbersGrid[i][j].toString();
+        
+                for (let k = 0; k < coordenates.length; k++) {
+                      if (coordenates[k].toString() == position) {
+                       text = text + textGrid[i][j];
+                      }
+                    }
+                }
+            }
+            console.log(text);
+            return text;
+        };
+        //////////////////////////////
+        
+        //////////////////////////////////////ArrowFunction to decrypt the message.
+        
+        const decrypt = (string, positions) => {
+        
+            let text = "";//will be the final message.
+        
+            let NekgikisVI = grid(sideSize);//the grid with the numbers or coordenates.
+        
+            let base = textGrid(sideSize, encriptedMessage);//the grid to decrypt.
+        
+        ///////////////1º cycle 0 degrees.
+        
+            text = compare(NekgikisVI, base, positions);
+        
+        ///////////////2º cycle 90 degrees
+        
+            NekgikisVI = ninetyDegrees(NekgikisVI);//Turn the grid.
+            text = text + compare(NekgikisVI, base, positions);//send to decrypt.
+        
+        ///////////////3º cycle 180 degrees
+        
+            NekgikisVI = ninetyDegrees(NekgikisVI);//Turn the grid.
+            text = text + compare(NekgikisVI, base, positions);//send to decrypt.
+        
+            return text;
+        };
+        ///////////////////////////////////////////////////////////////////////////
+        ///END OF MY CODE
+        
+        ////////Proof code
+        const decryptedMessage = decrypt(encriptedMessage, gridPosBase);
+        console.log(decryptedMessage);
+        </script>
+
+
     <div class="buttons">
         <button><a href="">Laboratorio</a></button>
         <button><a href="./bethroom.html">Bethroom</a></button> 
-        <button><a href="./basement.html">Basement</a></button> 
+        <button><a href="./basement.html">Basement</a></button>
+        <button><a href="./kitchen.html">Kitchen</a></button> 
         <button><a href="./mainCorridor.html">Main Corridor</a></button> 
     </div>
 </body>
