@@ -7,7 +7,9 @@
     <title>Bethroom</title>
 
     <link rel="stylesheet" href="./styles/bethroom.css" />
+    <link rel="stylesheet" href="./styles/itemMenu.css" />
     <script type="text/javascript" src="./index.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="./components/ItemMenu.js" charset="UTF-8"></script>
     <script type="module" src="./components/PuzzleGrid.js"></script>
 </head>
 <body>
@@ -198,6 +200,12 @@
 
         const finishPuzzle = () =>{
 
+            player.item2.name = 'Llave2';
+            player.item2.itemImg = 'Llave2';
+            player.item2.itemDescription = 'Llave2';
+
+            printInventory()
+
             console.log('hecho');
 
         }
@@ -256,5 +264,7 @@
         <button><a href="./mainCorridor.html">Main Corridor</a></button> 
     </div>
 
+    <div id="inventory"></div>
+    <script>printInventory();</script>
 </body>
 </html>

@@ -8,11 +8,16 @@
 
     <!-- css and utils Links-->
     <link rel="stylesheet" href="./styles/kitchen.css" />
+    <link rel="stylesheet" href="./styles/itemMenu.css" />
     <script type="text/javascript" src="./index.js" charset="UTF-8"></script>
     <script type="text/javascript" src="./classes/TestTube.js" charset="UTF-8"></script>
+    <script type="text/javascript" src="./components/ItemMenu.js" charset="UTF-8"></script>
     <!-- css and utils Links-->
   </head>
   <script>
+
+        
+
         //capturamos las constantes de :root;
         const cssPuzzle = document.documentElement.style;
 
@@ -137,7 +142,7 @@
 <header>
     <h1>KITCHEN</h1>
 </header>
-    <div class="grandFather">
+    <div class="grandFather">   
 
         <div class="father">
             5L
@@ -146,6 +151,7 @@
             </div>
             <p id="contents5"></p>
             <div class="buttons">
+                <button onclick="startPuzzle()">RESTART</button>
                 <button onclick="fillTube(5)">Llenar</button>
                 <button onclick="emptyTube(5)">Vaciar</button>
                 <button onclick="transferContent(5)">Traspasar</button>  
@@ -165,15 +171,16 @@
         </div>
 
     </div>
-    
-    <button onclick="startPuzzle()">RESTART</button>
-
+   
     <div class="buttons">
         <button><a href="">Laboratorio</a></button>
         <button><a href="./livingroom.html">Livingroom</a></button>
         <button><a href="./basement.html">Basement</a></button>  
+        <button><a href="./bethroom.html">Bethroom</a></button>  
         <button><a href="./mainCorridor.html">Main Corridor</a></button> 
     </div>
-    
+
+    <div id="inventory"></div>
+    <script>printInventory();</script>
 </body>
 </html>

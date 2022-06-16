@@ -1,0 +1,84 @@
+.menuFather {
+  border: 1px white solid;
+  width: 100%;
+  height: 10vh;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.menuFather .menuSon {
+  width: 99%;
+  height: 85%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.menuFather .menuSon .name {
+  height: 100%;
+  width: 40%;
+  border: 1px white solid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 2em;
+}
+
+.menuFather .menuSon .itemBox {
+  height: 100%;
+  width: 60%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.menuFather .menuSon .itemBox .item {
+  margin-left: 1%;
+  height: 100%;
+  width: 16%;
+  border: 1px white solid;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.menuFather .menuSon .itemBox .item .itemImg {
+  height: 100%;
+}
+
+.menuFather .menuSon .itemBox .item p {
+  display: none;
+}
+/*# sourceMappingURL=itemMenu.css.map */

@@ -85,3 +85,50 @@ const torch = (x,y) =>{
 
 
 ////////////////BETHROOM PUZZLE///////////////////////////////////////////////
+
+//////////////INVENTORY
+let player = {
+
+    name:'Lili Calzas Largas',
+
+    item1: {itemName:'Llave cocina',
+            itemImg:'./sources/llaveCocina.png', 
+            itemDescription:'llave que abre ' },
+
+    item2: {itemName:'', 
+            itemImg:'', 
+            itemDescription:'' },
+
+    item3: {itemName:'', 
+            itemImg:'', 
+            itemDescription:'' },
+
+    item4: {itemName:'', 
+            itemImg:'', 
+            itemDescription:'' },
+
+    item5: {itemName:'', 
+            itemImg:'', 
+            itemDescription:'' },
+
+    item6: {itemName:'', 
+            itemImg:'', 
+            itemDescription:'' },
+
+    item7: {itemName:'', 
+            itemImg:'', 
+            itemDescription:'' },
+
+    item8: {itemName:'', 
+            itemImg:'', 
+            itemDescription:'' }
+}
+
+const printInventory = () =>{
+
+    document.getElementById("inventory").innerHTML = `
+        <item-menu></item-menu>
+    `;
+
+}
+//////////////INVENTORY
