@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Livingroom</title>
 
-    <link rel="stylesheet" href="./styles/chapter2.css" />
+    <link rel="stylesheet" href="./styles/livingroom.css" />
     <script type="text/javascript" src="./index.js" charset="UTF-8"></script>
 </head>
 <body>
@@ -127,12 +127,73 @@
         ///////////////////////////////////////////////////////////////////////////
         ///END OF MY CODE
         
-        ////////Proof code
         const decryptedMessage = decrypt(encriptedMessage, gridPosBase);
         console.log(decryptedMessage);
+
+        //visualización de los giros
+        let decoder = grid(3);
+        let toDecode = textGrid(3,'053856IID');
+
+        console.log(decoder)
+        console.log(toDecode)
+
+        let decoder90 = ninetyDegrees(decoder);
+        console.log(decoder90);
+
+        let decoder180 = ninetyDegrees(decoder90);
+        console.log(decoder180);
+
+        let prueba = (serie1, serie2) =>{
+
+          for(let i = 0; i < serie1.length; i++){
+
+            for(let k = 0; k < 3; k++){
+
+              if(serie1[i][k] != '3,1' && serie1[i][k] != '2,3'){
+                serie2[i][k] = '';
+              }
+            }
+          }
+
+          return serie2;
+      }
+
+      let res1 = prueba(decoder, toDecode);
+      // let res2 = prueba(decoder90, toDecode);
+      // let res3 = prueba(decoder180, toDecode);
+
+      console.log(res1);
+      // console.log(res2);
+      // console.log(res3);
+      // console.log(prueba(decoder90, toDecode));
+      // console.log(prueba(decoder180, toDecode));
+
+        // let gridPosBase = [[3, 1],[2, 3]];
+        //visualización de los giros
         </script>
 
-
+    <div class="numbersGrid">
+      <div class="row">
+        <div class="colum">0</div>
+        <div class="colum">5</div>
+        <div class="colum">3</div>
+      </div>
+      <div class="row">
+        <div class="colum">8</div>
+        <div class="colum">5</div>
+        <div class="colum">6</div>
+      </div>
+      <div class="row">
+        <div class="colum">I</div>
+        <div class="colum">I</div>
+        <div class="colum">D</div>
+      </div>
+    </div>
+    <div class="buttons">
+        <button>RESTART</button>
+        <button>Turn 90º to right</button>
+        <button>Turn 90º to left</button>
+    </div>
     <div class="buttons">
         <button><a href="">Laboratorio</a></button>
         <button><a href="./bethroom.html">Bethroom</a></button> 

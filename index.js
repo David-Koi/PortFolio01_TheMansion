@@ -124,11 +124,11 @@ let player = {
             itemDescription:'' }
 }
 
-const printInventory = () =>{
+// const printInventory = () =>{
 
-    document.getElementById("inventory").innerHTML = `
-        <item-menu></item-menu>
-    `;
+//     document.getElementById("inventory").innerHTML = `
+//         <item-menu></item-menu>
+//     `;
 
-}
+// }
 //////////////INVENTORY

@@ -3,9 +3,8 @@ class ItemMenu extends HTMLElement {
     constructor() {
  
       super();
-      
-    }
 
+    }
     connectedCallback(){
 
         this.innerHTML = `
