@@ -11,195 +11,251 @@
 </head>
 <body>
 
-    <script>
+  <script>
 
-        ///////////////////////////////////////////Proof CODE
-         
-        const sideSize = 3; // Grid de lado 6
+    ///////////////////////////////////ArrowFunction create the grid of numbers.
+    const grid = (size, string) => {
+
+      let grid = [];
         
-        let gridPosBase = [[3, 1],[2, 3]];
+          for (let i = 0; i < size; i++) {
+            let aux = [];
         
-        let encriptedMessage = "053856IID";
-        
-        ///////////////////////////////////START OF MY CODE
-        
-        ///////////////////////////////////ArrowFunction create the grid of numbers.
-              const grid = (size, string) => {
-                let grid = [];
-        
-                for (let i = 0; i < size; i++) {
-                  let aux = [];
-        
-                  for (let j = 1; j <= size; j++) {
-                    aux.push([j, i + 1]);
-                  }
-                  grid.push(aux);
-                }
-                console.log(grid);
-                return grid;
-              };
-        //////////////////////////////////ArrowFunction create a grid with the text.
-        
-              const textGrid = (size, string) => {
-                let textGrid = [];
-        
-                for (let i = 0; i < size; i++){
-                  let aux = [];
-        
-                  for (let j = 1; j <= size; j++) {
-                    aux.push(string[0]);
-                    string = string.slice(1);
-                  }
-                  textGrid.push(aux);
-                }
-                console.log(textGrid);
-                return textGrid;
-              };
-        ////////////////////////////////
-        
-        /////////////////////////////////ArrowFunction to turn the grid 90 degrees.
-        
-              const ninetyDegrees = (serie) => {
-                let turnSerie90 = [];
-        
-                for (let i = 0; i < serie.length; i++) {
-                  let aux = [];
-        
-                  for (let j = 2; j >= 0; j--) {
-                    let aux2 = serie[j];
-                    aux.push(aux2[i]);
-                  }
-                  turnSerie90.push(aux);
-                }
-                console.log(turnSerie90);
-                return (serie = turnSerie90);
-              };
-        //////////////////////////////
-        
-        //////////////////////////ArrowFunction to apply the grid over the coordenates.
-        
-        const compare = (numbersGrid, textGrid, coordenates)=>{
-            let text = "";
-        
-            for (let i = 0; i < numbersGrid.length; i++) {
-                
-                for (let j = 0; j < numbersGrid[i].length; j++) {
-                    let position = numbersGrid[i][j].toString();
-        
-                for (let k = 0; k < coordenates.length; k++) {
-                      if (coordenates[k].toString() == position) {
-                       text = text + textGrid[i][j];
-                      }
-                    }
-                }
+            for (let j = 1; j <= size; j++) {
+              aux.push([j, i + 1]);
             }
-            console.log(text);
-            return text;
-        };
-        //////////////////////////////
-        
-        //////////////////////////////////////ArrowFunction to decrypt the message.
-        
-        const decrypt = (string, positions) => {
-        
-            let text = "";//will be the final message.
-        
-            let NekgikisVI = grid(sideSize);//the grid with the numbers or coordenates.
-        
-            let base = textGrid(sideSize, encriptedMessage);//the grid to decrypt.
-        
-        ///////////////1º cycle 0 degrees.
-        
-            text = compare(NekgikisVI, base, positions);
-        
-        ///////////////2º cycle 90 degrees
-        
-            NekgikisVI = ninetyDegrees(NekgikisVI);//Turn the grid.
-            text = text + compare(NekgikisVI, base, positions);//send to decrypt.
-        
-        ///////////////3º cycle 180 degrees
-        
-            NekgikisVI = ninetyDegrees(NekgikisVI);//Turn the grid.
-            text = text + compare(NekgikisVI, base, positions);//send to decrypt.
-        
-            return text;
-        };
-        ///////////////////////////////////////////////////////////////////////////
-        ///END OF MY CODE
-        
-        const decryptedMessage = decrypt(encriptedMessage, gridPosBase);
-        console.log(decryptedMessage);
+            grid.push(aux);
+          }
+      return grid;
+    };
 
-        //visualización de los giros
-        let decoder = grid(3);
-        let toDecode = textGrid(3,'053856IID');
+    ////////////////////////////////ArrowFunction create a grid with the text.
+        
+    const textGrid = (size, string) => {
 
-        console.log(decoder)
-        console.log(toDecode)
+      let textGrid = [];
+        
+        for (let i = 0; i < size; i++){
+          let aux = [];
+        
+            for (let j = 1; j <= size; j++) {
+              aux.push(string[0]);
+              string = string.slice(1);
+            }
+          textGrid.push(aux);
+        }
+      return textGrid;
+    };
+    ////////////////////////////////
+        
+    /////////////////////////////////ArrowFunction to turn the grid 90 degrees.
+        
+    const ninetyDegrees = (serie) => {
 
-        let decoder90 = ninetyDegrees(decoder);
-        console.log(decoder90);
+      let turnSerie90 = [];
+        
+        for (let i = 0; i < serie.length; i++) {
+          let aux = [];
+        
+            for (let j = 2; j >= 0; j--) {
+              let aux2 = serie[j];
+              aux.push(aux2[i]);
+            }
+          turnSerie90.push(aux);
+        }
+      console.log(turnSerie90);
+      return (serie = turnSerie90);
+    };
+    
+    let decoder = grid(3);
+    let toDecode = textGrid(3,'053856IID');
 
-        let decoder180 = ninetyDegrees(decoder90);
-        console.log(decoder180);
+    console.log(decoder)
+    console.log(toDecode)
 
-        let prueba = (serie1, serie2) =>{
+    const copy = (serie) =>{
 
-          for(let i = 0; i < serie1.length; i++){
+      let serieCopy = [
+                        ['','',''],
+                        ['','',''],
+                        ['','','']
+                      ];
 
-            for(let k = 0; k < 3; k++){
+          for(let i = 0; i < serie.length; i++){
 
-              if(serie1[i][k] != '3,1' && serie1[i][k] != '2,3'){
-                serie2[i][k] = '';
-              }
+            for(let k = 0;k < serie[i].length; k++){
+                
+              serieCopy[i][k] = serie[i][k];
+
+            };
+              
+          };
+      return serieCopy;
+    };
+        
+    let filterDecoder = (serie1, serie2) =>{
+            
+      let aux = copy(toDecode);
+
+        for(let i = 0; i < serie1.length; i++){
+
+          for(let k = 0; k < 3; k++){
+
+            if(serie1[i][k] != '3,1' && serie1[i][k] != '2,3'){
+
+              aux[i][k] = '';
+
             }
           }
+        }
+      return aux;
+    }
 
-          return serie2;
+  </script>
+
+  <div id="picture"></div>
+
+  <script>
+
+    let itemDecoder = true;
+    let apply = false;
+    let res = toDecode;
+    let grades = 0;
+    let decoder90 = ninetyDegrees(decoder);
+    let decoder180 = ninetyDegrees(decoder90);
+    let decoder270 = ninetyDegrees(decoder180);
+
+    const printPicture =()=>{
+
+      document.getElementById("picture").innerHTML = `
+
+        <div class="numbersGrid">
+          <div class="row">
+            <div class="colum">${res[0][0]}</div>
+            <div class="colum">${res[0][1]}</div>
+            <div class="colum">${res[0][2]}</div>
+          </div>
+          <div class="row">
+            <div class="colum">${res[1][0]}</div>
+            <div class="colum">${res[1][1]}</div>
+            <div class="colum">${res[1][2]}</div>
+          </div>
+          <div class="row">
+            <div class="colum">${res[2][0]}</div>
+            <div class="colum">${res[2][1]}</div>
+            <div class="colum">${res[2][2]}</div>
+          </div>
+        </div>
+      `;
+    }
+
+    printPicture();
+
+    const checkIfPictureDecoder = () =>{
+
+      if(apply === true){
+
+        switch(grades){
+
+          case 0:
+            res = filterDecoder(decoder, toDecode);
+          break;
+
+          case 90:
+            res = filterDecoder(decoder90, toDecode);
+          break;
+
+          case 180:
+            res = filterDecoder(decoder180, toDecode);
+          break;
+
+          case 270:
+            res = filterDecoder(decoder270, toDecode);
+          break;
+        }
+
+      }else{
+
+        res = toDecode;
+
       }
+      printPicture();
+    }
 
-      let res1 = prueba(decoder, toDecode);
-      // let res2 = prueba(decoder90, toDecode);
-      // let res3 = prueba(decoder180, toDecode);
+    const turn90Decoder = (symbol) =>{
 
-      console.log(res1);
-      // console.log(res2);
-      // console.log(res3);
-      // console.log(prueba(decoder90, toDecode));
-      // console.log(prueba(decoder180, toDecode));
+      if(grades === 270 && symbol === '+'){
+        null;
+      }else if(grades === 0 && symbol === '-'){
+        null;
+      }else{
 
-        // let gridPosBase = [[3, 1],[2, 3]];
-        //visualización de los giros
-        </script>
+        switch(symbol){
 
-    <div class="numbersGrid">
-      <div class="row">
-        <div class="colum">0</div>
-        <div class="colum">5</div>
-        <div class="colum">3</div>
-      </div>
-      <div class="row">
-        <div class="colum">8</div>
-        <div class="colum">5</div>
-        <div class="colum">6</div>
-      </div>
-      <div class="row">
-        <div class="colum">I</div>
-        <div class="colum">I</div>
-        <div class="colum">D</div>
-      </div>
-    </div>
-    <div class="buttons">
-        <button>RESTART</button>
-        <button>Turn 90º to right</button>
-        <button>Turn 90º to left</button>
-    </div>
-    <div class="buttons">
-        <button><a href="">Laboratorio</a></button>
-        <button><a href="./bethroom.html">Bethroom</a></button> 
-        <button><a href="./basement.html">Basement</a></button>
-        <button><a href="./kitchen.html">Kitchen</a></button> 
-        <button><a href="./mainCorridor.html">Main Corridor</a></button> 
-    </div>
+          case '+':
+          grades = grades + 90;
+          break;
+
+          case '-':
+          grades = grades - 90;
+          break;
+
+        }
+      }
+      checkIfPictureDecoder();
+    };
+
+    const restart =()=>{
+
+      grades = 0;
+      checkIfPictureDecoder();
+
+    }
+
+    checkIfPictureDecoder();
+
+  </script>
+    
+  <div class="buttons" id="panel">
+    <button onclick="restart()">RESTART</button>
+    <button onclick="turn90Decoder('+')">Turn 90º to right</button>
+    <button onclick="turn90Decoder('-')">Turn 90º to left</button>
+  </div>
+
+  <script>
+
+    const applyDecoder = () =>{
+
+      apply = !apply;
+      checkIfPictureDecoder();
+      restart();
+
+    }
+
+    const printApplyButton =()=>{
+
+      if(itemDecoder === true){
+
+        document.getElementById("panel").innerHTML = `
+          <button onclick="restart()">RESTART</button>
+          <button onclick='applyDecoder()'>Apply</button>
+          <button onclick="turn90Decoder('+')">Turn 90º to right</button>
+          <button onclick="turn90Decoder('-')">Turn 90º to left</button>
+        `;
+      }
+    }
+
+    printApplyButton();
+
+  </script>
+
+  <div class="buttons">
+    <button><a href="">Laboratorio</a></button>
+    <button><a href="./bethroom.html">Bethroom</a></button> 
+    <button><a href="./basement.html">Basement</a></button>
+    <button><a href="./kitchen.html">Kitchen</a></button> 
+    <button><a href="./mainCorridor.html">Main Corridor</a></button> 
+  </div>
+
 </body>
 </html>
