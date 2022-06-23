@@ -34,7 +34,7 @@ tación cuando pases por encima. Deberás encontrar la llave, teniendo cuidado d
 
 LIVINGROOM - 
                 Aquí encontramos un panel/cuadro/placa con números y letras. Al encontrar una pieza que se superpone, una vez la encontramos,
- con el botón 'APPLY'. Una vez super puesto, podemos girar a izquierda o derecha , para ir sacando combinaciones de números y letras, con las que abrir una caja fuerte. Si pulsas 'APPLY' con la pieza superpuesta, la retira y vuelve a verse el contenido original. Si se encuentra en posición 0 y se pulsa 'Turn 90º to the left' no hará nada, igual que si nos encontramos en posición de 270º y se pulsa 'Turno 90º to the right'.
+con el botón 'APPLY'. Una vez super puesto, podemos girar a izquierda o derecha , para ir sacando combinaciones de números y letras, con las que abrir una caja fuerte. Si pulsas 'APPLY' con la pieza superpuesta, la retira y vuelve a verse el contenido original. Si se encuentra en posición 0 y se pulsa 'Turn 90º to the left' no hará nada, igual que si nos encontramos en posición de 270º y se pulsa 'Turno 90º to the right'.
 
 LABORATORIO - 
                 <!-- ***EN PROCESO*** -->
