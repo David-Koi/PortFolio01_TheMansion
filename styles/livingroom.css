@@ -2,6 +2,10 @@ body {
   background-color: black;
 }
 
+#picture {
+  width: 100%;
+}
+
 .numbersGrid {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -51,6 +55,55 @@ body {
           align-items: center;
 }
 
+.row .noView {
+  height: 100%;
+  width: 33%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: brown;
+}
+
+.row .view {
+  border: 1px brown solid;
+  height: 100%;
+  width: 33%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.row .reference {
+  height: 100%;
+  width: 33%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: brown;
+  background-image: url("../sources/compass.png");
+  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+
 .buttons {
   height: 1%;
   width: 100%;
@@ -66,12 +119,12 @@ body {
 }
 
 .buttons button {
-  width: 15%;
+  width: 25%;
   color: white;
   border: 1px solid white;
   background-color: transparent;
   margin-bottom: 5%;
-  margin-right: 4%;
+  margin-right: 1%;
 }
 
 .buttons button a {

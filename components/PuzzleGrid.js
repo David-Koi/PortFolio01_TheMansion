@@ -2,7 +2,6 @@ class PuzzleGrid extends HTMLElement {
 
     constructor() {
 
-      
       super();
       
     }

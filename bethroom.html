@@ -202,10 +202,10 @@
         const finishPuzzle = () =>{
 
             player.item2.name = 'Llave2';
-            player.item2.itemImg = 'Llave2';
+            player.item2.itemImg = './sources/llaveCocina.png';
             player.item2.itemDescription = 'Llave2';
 
-            // printInventory()
+            printInventory()
 
             console.log('hecho');
 
@@ -258,16 +258,17 @@
     </div>
 
     <div class="buttons">
-        <button><a href="">Laboratorio</a></button>
+        <button><a href="">Laboratory</a></button>
         <button><a href="./livingroom.html">Livingroom</a></button>
         <button><a href="./basement.html">Basement</a></button>
         <button><a href="./kitchen.html">Kitchen</a></button>  
-        <button><a href="./mainCorridor.html">Main Corridor</a></button> 
+        <button><a href="./mainCorridor.html">Corridor</a></button> 
     </div>
 
-    <!-- <div id="inventory"></div>
-    <script>console.log(this.player);
-    printInventory();</script> -->
+    <div id="inventory"></div>
+    <script>
+        printInventory();
+    </script>
 
 </body>
 </html>

@@ -22,7 +22,7 @@
             let aux = [];
         
             for (let j = 1; j <= size; j++) {
-              aux.push([j, i + 1]);
+              aux.push([j,i + 1]);
             }
             grid.push(aux);
           }
@@ -68,7 +68,7 @@
     };
     
     let decoder = grid(3);
-    let toDecode = textGrid(3,'053856IID');
+    let toDecode = textGrid(3,'05382DIID');
 
     console.log(decoder)
     console.log(toDecode)
@@ -117,13 +117,46 @@
 
   <script>
 
-    let itemDecoder = true;
+    let itemDecoder = false;
     let apply = false;
     let res = toDecode;
     let grades = 0;
     let decoder90 = ninetyDegrees(decoder);
     let decoder180 = ninetyDegrees(decoder90);
     let decoder270 = ninetyDegrees(decoder180);
+    let varCheck = decoder;
+
+    const checkRes = (serie) =>{
+
+      if(apply === true){
+
+        for(let i  = 0; i < serie.length; i++){
+
+          for(let k = 0; k < serie[i].length; k++){
+              console.log(varCheck[i][k]);
+            if(varCheck[i][k][0] === 1 && varCheck[i][k][1] === 1){
+
+              let myDiv = document.getElementById(`n${i}${k}`);
+              myDiv.classList.remove('colum','noView','reference','view')
+              myDiv.classList.add('reference');
+
+            }else if(serie[i][k] !== ''){
+
+              let myDiv = document.getElementById(`n${i}${k}`);
+              myDiv.classList.remove('colum','noView','reference','view');
+              myDiv.classList.add('view');
+
+            }else{
+
+              let myDiv = document.getElementById(`n${i}${k}`);
+              myDiv.classList.remove('colum','noView','reference','view')
+              myDiv.classList.add('noView');
+
+            }
+          }
+        }
+      }
+    }
 
     const printPicture =()=>{
 
@@ -131,22 +164,23 @@
 
         <div class="numbersGrid">
           <div class="row">
-            <div class="colum">${res[0][0]}</div>
-            <div class="colum">${res[0][1]}</div>
-            <div class="colum">${res[0][2]}</div>
+            <div class="colum" id="n00">${res[0][0]}</div>
+            <div class="colum" id="n01">${res[0][1]}</div>
+            <div class="colum" id="n02">${res[0][2]}</div>
           </div>
           <div class="row">
-            <div class="colum">${res[1][0]}</div>
-            <div class="colum">${res[1][1]}</div>
-            <div class="colum">${res[1][2]}</div>
+            <div class="colum" id="n10">${res[1][0]}</div>
+            <div class="colum" id="n11">${res[1][1]}</div>
+            <div class="colum" id="n12">${res[1][2]}</div>
           </div>
           <div class="row">
-            <div class="colum">${res[2][0]}</div>
-            <div class="colum">${res[2][1]}</div>
-            <div class="colum">${res[2][2]}</div>
+            <div class="colum" id="n20">${res[2][0]}</div>
+            <div class="colum" id="n21">${res[2][1]}</div>
+            <div class="colum" id="n22">${res[2][2]}</div>
           </div>
         </div>
       `;
+      checkRes(res, varCheck);
     }
 
     printPicture();
@@ -158,19 +192,24 @@
         switch(grades){
 
           case 0:
+            decoder = grid(3);
+            varcheck = decoder;
             res = filterDecoder(decoder, toDecode);
           break;
 
           case 90:
             res = filterDecoder(decoder90, toDecode);
+            varCheck = decoder90;
           break;
 
           case 180:
             res = filterDecoder(decoder180, toDecode);
+            varCheck = decoder180
           break;
 
           case 270:
             res = filterDecoder(decoder270, toDecode);
+            varCheck = decoder270;
           break;
         }
 
@@ -179,6 +218,8 @@
         res = toDecode;
 
       }
+
+      
       printPicture();
     }
 
@@ -186,40 +227,21 @@
 
       if(grades === 270 && symbol === '+'){
         null;
-      }else if(grades === 0 && symbol === '-'){
-        null;
       }else{
-
-        switch(symbol){
-
-          case '+':
-          grades = grades + 90;
-          break;
-
-          case '-':
-          grades = grades - 90;
-          break;
-
-        }
+        grades = grades + 90;
+        console.log(decoder);
+        console.log(grades);
       }
       checkIfPictureDecoder();
     };
-
-    const restart =()=>{
-
-      grades = 0;
-      checkIfPictureDecoder();
-
-    }
 
     checkIfPictureDecoder();
 
   </script>
     
   <div class="buttons" id="panel">
-    <button onclick="restart()">RESTART</button>
+    <button onclick="location.reload()">RESTART</button>
     <button onclick="turn90Decoder('+')">Turn 90º to right</button>
-    <button onclick="turn90Decoder('-')">Turn 90º to left</button>
   </div>
 
   <script>
@@ -228,7 +250,6 @@
 
       apply = !apply;
       checkIfPictureDecoder();
-      restart();
 
     }
 
@@ -237,10 +258,9 @@
       if(itemDecoder === true){
 
         document.getElementById("panel").innerHTML = `
-          <button onclick="restart()">RESTART</button>
+          <button onclick="location.reload()">RESTART</button>
           <button onclick='applyDecoder()'>Apply</button>
           <button onclick="turn90Decoder('+')">Turn 90º to right</button>
-          <button onclick="turn90Decoder('-')">Turn 90º to left</button>
         `;
       }
     }
@@ -250,11 +270,11 @@
   </script>
 
   <div class="buttons">
-    <button><a href="">Laboratorio</a></button>
+    <button><a href="">Laboratory</a></button>
     <button><a href="./bethroom.html">Bethroom</a></button> 
     <button><a href="./basement.html">Basement</a></button>
     <button><a href="./kitchen.html">Kitchen</a></button> 
-    <button><a href="./mainCorridor.html">Main Corridor</a></button> 
+    <button><a href="./mainCorridor.html">Corridor</a></button> 
   </div>
 
 </body>

@@ -89,7 +89,7 @@ const torch = (x,y) =>{
 //////////////INVENTORY
 let player = {
 
-    name:'Lili Calzas Largas',
+    name:'Player Name',
 
     item1: {itemName:'Llave cocina',
             itemImg:'./sources/llaveCocina.png', 
@@ -122,13 +122,13 @@ let player = {
     item8: {itemName:'', 
             itemImg:'', 
             itemDescription:'' }
-}
+};
 
-// const printInventory = () =>{
+const printInventory = () =>{
 
-//     document.getElementById("inventory").innerHTML = `
-//         <item-menu></item-menu>
-//     `;
+    document.getElementById("inventory").innerHTML = `
+        <item-menu></item-menu>
+    `;
 
-// }
-//////////////INVENTORY
+};
+////////////INVENTORY
